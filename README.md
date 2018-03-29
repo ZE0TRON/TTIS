@@ -5,8 +5,8 @@ It's too hard to keep separate note files for things to read things to watch thi
 
 ## Installing  
 1)Clone the repo  
-2)copy the exec file under /dist folder to /usr/bin by   ```bash sudo cp dist/TTIS /usr/bin/ bash```  
-3)from terminal run the command ```bash TTIS init bash```  
+2)copy the exec file under /dist folder to /usr/bin by   ``` sudo cp dist/TTIS /usr/bin/ ```  
+3)from terminal run the command ``` TTIS init ```  
 
 
 ## Usage  
