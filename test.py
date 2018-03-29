@@ -12,6 +12,11 @@ def doesCategoryExists(category):
     return False
 
 
+def listCat():
+    for cat in os.listdir(user_home + "/.TTIS/"):
+        print(cat.rstrip(".data"))
+
+
 def initRequired():
     print("You should init your directory first for more info -h")
 
@@ -26,7 +31,7 @@ except:
 
 def usage():
     print(
-        "Hello There, welcome to the Things That I Should(TTIS) created by : ze0tron  \ninit -----  * init * for first usage \nadd ---- * category_name add task * adds a task to the category example : do add homework \nlist ---- * category_name list *  lists the content of the category example : learn list  \ndone -----* category_name done  task *  set an task as done and deletes it from category example : watch done Batman_The_Dark_Knight"
+        "Hello There, welcome to the Things That I Should(TTIS) created by : ze0tron  \ninit -----  * init * for first usage \nadd ---- * category_name add task * adds a task to the category example : do add homework \nlist ---- * category_name list *  lists the content of the category example : learn list  \ndone -----* category_name done  task *  set an task as done and deletes it from category example : watch done Batman_The_Dark_Knight\nlistcat ----- *listcat* lists all categories\ndelcat ----- *delcat category_name* deletes the category with the given name example : delcat watch"
     )
 
 
@@ -43,7 +48,8 @@ def parseInput():
             c = open(user_home + "/.TTIS/dir.conf", 'w')
             print("v1.0", file=c)
             c.close()
-
+        elif (argv[1] == "listcat"):
+            listCat()
     #List
     elif (len(argv) == 3):
         if (argv[2] == "list"):
@@ -54,6 +60,8 @@ def parseInput():
                 for line in c.readlines():
                     print(line.rstrip())
                 c.close()
+        elif (argv[1] == "delcat"):
+            os.remove(user_home + "/.TTIS/" + argv[2] + ".data")
         #Add
     elif (len(argv) == 4):
         if (argv[2] == "add"):
